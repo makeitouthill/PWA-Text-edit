@@ -2,6 +2,8 @@ import { Workbox } from 'workbox-window';
 import Editor from './editor';
 import './database';
 import '../css/style.css';
+import {basicSetup} from "codemirror";
+import {javascript} from "@codemirror/lang-javascript";
 
 const main = document.querySelector('#main');
 main.innerHTML = '';
@@ -17,7 +19,10 @@ const loadSpinner = () => {
   main.appendChild(spinner);
 };
 
-const editor = new Editor();
+const editor = new Editor({
+  extensions: [basicSetup, javascript()],
+  parent: document.body
+});
 
 if (typeof editor === 'undefined') {
   loadSpinner();
