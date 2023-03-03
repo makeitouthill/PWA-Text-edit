@@ -18,7 +18,31 @@ module.exports = () => {
       path: path.resolve(__dirname, 'dist'),
     },
     plugins: [
-      
+      new HtmlWebpackPlugin({
+        template:'./index.html',
+        title: 'J.A.T.E'
+      }),
+
+      new WebpackPwaManifest({
+        fingerprints: false,
+        inject: true,
+        name: 'Just Another Text Editor',
+        short_name: 'J.A.T.E',
+        description: 'Take your Text editing offline!',
+        background_color: '#37B1E4',
+        theme_color: '#37B1E4',
+        start_url: './',
+        publicPath: './',
+        icons: [
+          {
+            src: path.resolve('./src/images/logo.png'),
+            sizes: [96, 128, 192, 256, 384, 512],
+            destination: path.join('assets', 'icons'),
+            // To allow logo to be display for app icon on mobiles
+            purpose: 'maskable',
+          },
+        ],
+      })
     ],
     module: {
       rules: [
