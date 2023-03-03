@@ -29,8 +29,8 @@ module.exports = () => {
         name: 'Just Another Text Editor',
         short_name: 'J.A.T.E',
         description: 'Take your Text editing offline!',
-        background_color: '#37B1E4',
-        theme_color: '#37B1E4',
+        background_color: '#225ca3',
+        theme_color: '#225ca3',
         start_url: './',
         publicPath: './',
         icons: [
